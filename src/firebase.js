@@ -1,22 +1,18 @@
 // src/firebase.js
-
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore"; 
 
-// 너의 Firebase 설정
 const firebaseConfig = {
-  apiKey: "AIzaSyCTuK9574X_nxkL-JFQ0fEExjzV5D_OKW8",
-  authDomain: "mealpal-c6f2a.firebaseapp.com",
-  projectId: "mealpal-c6f2a",
-  storageBucket: "mealpal-c6f2a.firebasestorage.app",
-  messagingSenderId: "368989109925",
-  appId: "1:368989109925:web:9eaf38594cbda03d99d74c"
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_PROJECT_ID.appspot.com",
+  messagingSenderId: "YOUR_SENDER_ID",
+  appId: "YOUR_APP_ID",
 };
 
-// Firebase 초기화
 const app = initializeApp(firebaseConfig);
 
-// Firebase 인증 객체 가져오기
-const auth = getAuth(app);
-
-export { auth };
+export const auth = getAuth(app);
+export const db = getFirestore(app); 

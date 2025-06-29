@@ -9,9 +9,9 @@ function Login() {
   const handleLogin = async () => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      alert("로그인 성공!");
+      alert("login success!");
     } catch (error) {
-      alert("로그인 실패: " + error.message);
+      alert("login failed: " + error.message);
     }
   };
 
@@ -37,7 +37,7 @@ function Login() {
           onClick={handleLogin}
           className="bg-blue-500 text-white px-4 py-2 w-full rounded hover:bg-blue-600"
         >
-          로그인
+          LOG IN
         </button>
       </div>
     </div>
