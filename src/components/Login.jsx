@@ -1,17 +1,20 @@
 import { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
+import { useNavigate } from "react-router-dom"; 
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate(); 
 
   const handleLogin = async () => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      alert("login success!");
+      alert("Login success!");
+      navigate("/"); 
     } catch (error) {
-      alert("login failed: " + error.message);
+      alert("Login fail: " + error.message);
     }
   };
 
@@ -37,7 +40,7 @@ function Login() {
           onClick={handleLogin}
           className="bg-blue-500 text-white px-4 py-2 w-full rounded hover:bg-blue-600"
         >
-          LOG IN
+          Login
         </button>
       </div>
     </div>
