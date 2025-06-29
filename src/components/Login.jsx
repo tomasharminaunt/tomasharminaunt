@@ -1,18 +1,19 @@
 import { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 
-function Login() {
+function Login({ setIsLoggedIn }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const handleLogin = async () => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
+      setIsLoggedIn(true); // ✅ 로그인 상태 업데이트
       alert("Login success!");
-      navigate("/"); 
+      navigate("/"); // ✅ 홈페이지로 이동
     } catch (error) {
       alert("Login fail: " + error.message);
     }

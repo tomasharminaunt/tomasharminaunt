@@ -1,23 +1,20 @@
 // src/components/HomePage.jsx
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Header from "./Header";
 
 function HomePage() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true); // 로그인 상태 (기본값은 true로 테스트)
+  const navigate = useNavigate();
 
   return (
     <div className="min-h-screen bg-white">
-      <Header />
 
-      {/* Main content area with top margin to avoid dropdown overlap */}
       <main className="mt-24">
-        {/* Top Recipes Section */}
         <section className="p-6 text-center">
           <h2 className="text-3xl font-bold mb-6">Top Recipes</h2>
           <div className="grid grid-cols-3 gap-10 max-w-6xl mx-auto">
-            
-            {/* Recipe Card 1 */}
+            {/* 카드 3개 */}
             <div className="w-64 mx-auto rounded overflow-hidden shadow bg-white">
               <img
                 src="/images/recipe1.jpg"
@@ -30,7 +27,6 @@ function HomePage() {
               </div>
             </div>
 
-            {/* Recipe Card 2 */}
             <div className="w-64 mx-auto rounded overflow-hidden shadow bg-white">
               <img
                 src="/images/recipe2.jpg"
@@ -43,7 +39,6 @@ function HomePage() {
               </div>
             </div>
 
-            {/* Recipe Card 3 */}
             <div className="w-64 mx-auto rounded overflow-hidden shadow bg-white">
               <img
                 src="/images/recipe3.jpg"
@@ -55,11 +50,9 @@ function HomePage() {
                 <p className="text-sm text-gray-500">Sweet and Creamy</p>
               </div>
             </div>
-
           </div>
         </section>
 
-        {/* Join/Login Footer */}
         <footer className="text-center py-6 border-t text-sm">
           <p>
             Already have an account?{" "}

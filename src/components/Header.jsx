@@ -1,9 +1,14 @@
-import { Link } from "react-router-dom";
-import { useState } from "react";
+// src/components/Header.jsx
+import { Link, useNavigate } from "react-router-dom";
 import logoImg from "../assets/mealpal-logo.png";
 
-function Header() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+function Header({ isLoggedIn, setIsLoggedIn }) {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    navigate("/");
+  };
 
   return (
     <header className="bg-white shadow-md sticky top-0 z-[100] px-6 py-4 relative">
@@ -36,11 +41,11 @@ function Header() {
           <span className="text-gray-400">|</span>
           {isLoggedIn ? (
             <button
-              onClick={() => setIsLoggedIn(false)}
-              className="hover:text-orange-500"
-            >
-              Log Out
-            </button>
+  onClick={handleLogout}
+  className="hover:text-orange-500 bg-transparent border-none p-0 m-0"
+>
+  &nbsp;Log Out
+</button>
           ) : (
             <Link to="/login" className="hover:text-orange-500">&nbsp;Log In</Link>
           )}
@@ -58,22 +63,18 @@ function Header() {
 
         {/* Dropdown container */}
         <div className="relative group mx-4">
-  <span className="hover:text-orange-500 cursor-pointer">Cuisines</span>
-
-  {/* Dropdown content */}
-  <div
-  className="absolute top-full left-1/2 -translate-x-1/2 mt-2
-             text-white text-sm border shadow-md rounded-md w-40
-             hidden group-hover:block z-[9999]"
-  style={{ backgroundColor: 'white' }}
->
-  <div className="px-4 py-2 hover:bg-orange-500 cursor-pointer">Mexican</div>
-  <div className="px-4 py-2 hover:bg-orange-500 cursor-pointer">Italian</div>
-  <div className="px-4 py-2 hover:bg-orange-500 cursor-pointer">Korean</div>
-</div>
-
-</div>
-
+          <span className="hover:text-orange-500 cursor-pointer">Cuisines</span>
+          <div
+            className="absolute top-full left-1/2 -translate-x-1/2 mt-2
+              text-white text-sm border shadow-md rounded-md w-40
+              hidden group-hover:block z-[9999]"
+            style={{ backgroundColor: 'white' }}
+          >
+            <div className="px-4 py-2 hover:bg-orange-500 cursor-pointer">Mexican</div>
+            <div className="px-4 py-2 hover:bg-orange-500 cursor-pointer">Italian</div>
+            <div className="px-4 py-2 hover:bg-orange-500 cursor-pointer">Korean</div>
+          </div>
+        </div>
 
         <span className="text-gray-400 mx-4">&nbsp;|&nbsp;</span>
         <span className="hover:text-orange-500 cursor-pointer mx-4">Kitchen Tips</span>
