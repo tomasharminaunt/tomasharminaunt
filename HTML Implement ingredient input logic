@@ -1,3 +1,0 @@
-<input type="text" id="ingredientInput" placeholder="Enter an ingredient">
-<button onclick="addIngredient()">Add</button>
-<ul id="ingredientList"></ul>
