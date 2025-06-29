@@ -1,0 +1,24 @@
+function addIngredient() {
+  const input = document.getElementById("ingredientInput");
+  const ingredient = input.value.trim();
+
+  if (ingredient === "") return; // prevent empty entries
+
+  const list = document.getElementById("ingredientList");
+
+  // Create list item
+  const li = document.createElement("li");
+  li.textContent = ingredient;
+
+  // Optional: Add a delete button
+  const deleteBtn = document.createElement("button");
+  deleteBtn.textContent = "Remove";
+  deleteBtn.onclick = function () {
+    list.removeChild(li);
+  };
+
+  li.appendChild(deleteBtn);
+  list.appendChild(li);
+
+  input.value = ""; // clear input after adding
+}
