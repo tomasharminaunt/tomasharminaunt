@@ -1,13 +1,33 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <title>Recipe Finder</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Recipe Finder </h1>
+
+    <input type="text" id="ingredient-input" placeholder="Enter ingredients (e.g. tomato, cheese etc)" />
+    <button onclick="searchRecipes()">Search Recipes</button>
+
+    <select id="sort-options" onchange="sortResults()">
+  <option value="simple">Simple</option>
+  <option value="fast">Fast</option>
+  <option value="top-rated">Top Rated</option>
+</select>
+
+    <div id="recipe-results"></div>
+
+    <h2>Manual Recipe Add</h2>
+    <input type="text" id="manual-title" placeholder="Recipe Title">
+    <input type="text" id="manual-img" placeholder="Image URL/Link">
+    <textarea id="manual-steps" placeholder="Recipe Instructions"></textarea>
+    <button onclick="addManualRecipe()">Add Recipe</button>
+    <div id="manual-recipe-list"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
 </html>
