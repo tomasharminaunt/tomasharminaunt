@@ -1,28 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Recipe Finder</title>
+  <meta charset="UTF-8" />
+  <title>Recipe App</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <nav>
+    <a href="index.html">Home</a> |
+    <a href="results.html">Results</a> |
+    <a href="add-recipe.html">Add Recipe</a>
+  </nav>
+
   <div class="container">
-    <h1>Recipe Finder </h1>
+    <h1>Recipe Finder</h1>
 
-    <input type="text" id="ingredient-input" placeholder="Enter ingredients (e.g. tomato, cheese etc)" />
+    <!-- SEARCH -->
+    <input type="text" id="ingredient-input" placeholder="Enter ingredients (tomato, cheese…)" />
     <button onclick="searchRecipes()">Search Recipes</button>
-
     <select id="sort-options" onchange="sortResults()">
-  <option value="simple">Simple</option>
-  <option value="fast">Fast</option>
-  <option value="top-rated">Top Rated</option>
-</select>
+      <option value="simple">Simple</option>
+      <option value="fast">Fast</option>
+      <option value="top-rated">Top Rated</option>
+    </select>
+
+    <!-- TABS: category & cuisine -->
+    <div id="tabs">
+      <span>Category:</span>
+      <button onclick="filterBy('category','All')">All</button>
+      <button onclick="filterBy('category','Lunch')">Lunch</button>
+      <button onclick="filterBy('category','Dinner')">Dinner</button>
+      <button onclick="filterBy('category','Snacks')">Snacks</button>
+      &nbsp;<span>Cuisine:</span>
+      <button onclick="filterBy('cuisine','All')">All</button>
+      <button onclick="filterBy('cuisine','Italian')">Italian</button>
+      <button onclick="filterBy('cuisine','Korean')">Korean</button>
+    </div>
 
     <div id="recipe-results"></div>
 
-    <h2>Manual Recipe Add</h2>
+    <h2>Add Manual Recipe</h2>
     <input type="text" id="manual-title" placeholder="Recipe Title">
-    <input type="text" id="manual-img" placeholder="Image URL/Link">
+    <select id="manual-category">
+      <option value="">Category...</option>
+      <option>Lunch</option><option>Dinner</option><option>Snacks</option>
+    </select>
+    <select id="manual-cuisine">
+      <option value="">Cuisine...</option>
+      <option>Italian</option><option>Korean</option><option>Other</option>
+    </select>
+    <input type="file" id="manual-image" accept="image/*"/>
+    <img id="manual-preview" style="display:none; max-width:200px; margin-top:10px;" />
     <textarea id="manual-steps" placeholder="Recipe Instructions"></textarea>
     <button onclick="addManualRecipe()">Add Recipe</button>
     <div id="manual-recipe-list"></div>

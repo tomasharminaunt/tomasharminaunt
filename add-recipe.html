@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Add Recipe</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a> |
+    <a href="results.html">Results</a> |
+    <a href="add-recipe.html">Add Recipe</a>
+  </nav>
+  <div class="container">
+    <h1>Add New Recipe</h1>
+    <input type="text" id="manual-title" placeholder="Recipe Title">
+    <select id="manual-category">
+      <option value="">--Category--</option>
+      <option>Lunch</option><option>Dinner</option><option>Snacks</option>
+    </select>
+    <select id="manual-cuisine">
+      <option value="">--Cuisine--</option>
+      <option>Italian</option><option>Korean</option><option>Other</option>
+    </select>
+    <input type="file" id="manual-image" accept="image/*"/>
+    <img id="manual-preview" style="display:none; max-width:200px; margin-top:10px;" />
+    <textarea id="manual-steps" placeholder="Recipe Instructions"></textarea>
+    <button onclick="addManualRecipe()">Add Recipe</button>
+    <div id="manual-recipe-list"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
